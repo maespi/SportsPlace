@@ -36,9 +36,8 @@ class SportsPlaceApp extends StatelessWidget {
         '/': (context) => const LogIn(title: 'Sports Place'),
         '/login': (context) => const LogIn(title: 'Sports Place'),
         '/signUp': (context) => const SignUp(title: 'Sports Place'),
-        '/maps': (context) => MapSample(),
+        '/maps': (context) => const MapSample(),
       },
-
     );
   }
 }

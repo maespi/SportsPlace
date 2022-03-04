@@ -1,6 +1,8 @@
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
+import './welcomePage.dart';
 import 'dataStorage.dart' as global;
 
 
@@ -77,7 +79,8 @@ class _LogInState extends State<LogIn> {
                       onPressed: () {
                         if (global.accounts.containsKey(controllerUser.text) && global.accounts[controllerUser.text] == controllerPass.text){
                           print("User "+controllerUser.text+" logged in");
-                          Navigator.pushNamed(context, "/maps");
+                          //Navigator.pushNamed(context, "/maps");
+                          pushNewScreen(context, screen: const welcomeApp());
                         }else{
                           showDialog(context: context,
                               builder: (context) {
