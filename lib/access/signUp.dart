@@ -1,7 +1,7 @@
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'dataStorage.dart' as global;
+import '../dataStorage.dart' as global;
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key, required this.title}) : super(key: key);
@@ -84,6 +84,8 @@ class _SignUpForm extends State<SignUp>{
                           if (!global.accounts.containsKey(controllerUser.text)){
                             print("User "+controllerUser.text+" Signed Up");
                             global.accounts[controllerUser.text] = controllerPass.text;
+                            global.profiles[controllerUser.text] = global.User(controllerUser.text, 'Email', 'User Data');
+
                             showDialog(context: context,
                                 builder: (context) {
                                   return AlertDialog(

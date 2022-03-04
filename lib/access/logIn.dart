@@ -1,9 +1,9 @@
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
-import './welcomePage.dart';
-import 'dataStorage.dart' as global;
+import '../dataStorage.dart';
+import '../welcomePage.dart';
+import '../dataStorage.dart' as global;
 
 
 class LogIn extends StatefulWidget {
@@ -78,16 +78,17 @@ class _LogInState extends State<LogIn> {
                       ),
                       onPressed: () {
                         if (global.accounts.containsKey(controllerUser.text) && global.accounts[controllerUser.text] == controllerPass.text){
-                          print("User "+controllerUser.text+" logged in");
-                          //Navigator.pushNamed(context, "/maps");
-                          pushNewScreen(context, screen: const welcomeApp());
+                          User user = global.profiles[controllerUser.text];
+                          print("User has connected: "+user.Name);
+                          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (BuildContext context) => WelcomeApp(user: user)), (route) => false);// We delete the current path to avoid problems with the menu in login pages
                         }else{
-                          showDialog(context: context,
+                          showDialog(
+                              context: context,
                               builder: (context) {
                                 return const AlertDialog(
                                   content: Text("Error on sign in with that user and password"),
                                 );
-                              } );
+                              });
                         }
                         controllerPass.clear();
                         controllerUser.clear();

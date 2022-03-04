@@ -1,19 +1,21 @@
 
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
-import 'package:sports_place/logIn.dart';
-import 'package:sports_place/signUp.dart';
+import 'package:sports_place/access/signUp.dart';
 import 'package:sports_place/MapsPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sports_place/dataStorage.dart';
+import 'package:sports_place/profile/profile.dart';
 
-class welcomeApp extends StatefulWidget {
-  const welcomeApp({Key? key}) : super(key: key);
+class WelcomeApp extends StatefulWidget {
+  const WelcomeApp({Key? key, required this.user}) : super(key: key);
 
+  final User user;
   @override
-  State<StatefulWidget> createState() => _welcomeApp();
+  State<StatefulWidget> createState() => _WelcomeApp();
 
 }
-class _welcomeApp extends State<welcomeApp> {
+class _WelcomeApp extends State<WelcomeApp> {
   PersistentTabController _controllerNav = PersistentTabController(initialIndex: 0);
 
   @override
@@ -51,14 +53,14 @@ class _welcomeApp extends State<welcomeApp> {
   List<Widget> _buildScreens() {
     return [
       const MapSample(),
-      const SignUp(title: "ss"),
-      const LogIn(title: "ww"),
+      Profile(user: widget.user),
+      Profile(user: widget.user),
     ];
   }
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.settings),
+        icon: Icon(CupertinoIcons.map_fill),
         title: ("Map"),
         activeColorPrimary: CupertinoColors.activeBlue,
         inactiveColorPrimary: CupertinoColors.systemGrey,
@@ -70,8 +72,8 @@ class _welcomeApp extends State<welcomeApp> {
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.settings),
-        title: ("Settings"),
+        icon: Icon(CupertinoIcons.profile_circled),
+        title: ("Profile"),
         activeColorPrimary: CupertinoColors.activeBlue,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
