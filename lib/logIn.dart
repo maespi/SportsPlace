@@ -24,9 +24,7 @@ class _LogInState extends State<LogIn> {
         body: Center(
           // Center is a layout widget. It takes a single child and positions it
           // in the middle of the parent.
-          child: Column(
-
-            mainAxisAlignment: MainAxisAlignment.start,
+          child: ListView(
             children: <Widget>[
               Container(
                 padding: const EdgeInsets.only(top: 4),
@@ -79,6 +77,7 @@ class _LogInState extends State<LogIn> {
                       onPressed: () {
                         if (global.accounts.containsKey(controllerUser.text) && global.accounts[controllerUser.text] == controllerPass.text){
                           print("User "+controllerUser.text+" logged in");
+                          Navigator.pushNamed(context, "/maps");
                         }else{
                           showDialog(context: context,
                               builder: (context) {

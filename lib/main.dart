@@ -1,15 +1,22 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import './logIn.dart';
 import './signUp.dart';
+import './MapsPage.dart';
 import 'dataStorage.dart' as global;
 
 void main() {
   runApp(const SportsPlaceApp());
   global.accounts['marc'] = "suu";
+  if (defaultTargetPlatform == TargetPlatform.android) {
+    AndroidGoogleMapsFlutter.useAndroidViewSurface = true;
+  }
 }
 
 class SportsPlaceApp extends StatelessWidget {
   const SportsPlaceApp({Key? key}) : super(key: key);
+
 
   // This widget is the root of your application.
   @override
@@ -29,6 +36,7 @@ class SportsPlaceApp extends StatelessWidget {
         '/': (context) => const LogIn(title: 'Sports Place'),
         '/login': (context) => const LogIn(title: 'Sports Place'),
         '/signUp': (context) => const SignUp(title: 'Sports Place'),
+        '/maps': (context) => MapSample(),
       },
 
     );
