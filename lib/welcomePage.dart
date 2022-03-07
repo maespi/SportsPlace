@@ -8,9 +8,8 @@ import 'package:sports_place/dataStorage.dart';
 import 'package:sports_place/profile/profile.dart';
 
 class WelcomeApp extends StatefulWidget {
-  const WelcomeApp({Key? key, required this.user}) : super(key: key);
+  const WelcomeApp({Key? key}) : super(key: key);
 
-  final User user;
   @override
   State<StatefulWidget> createState() => _WelcomeApp();
 
@@ -53,26 +52,26 @@ class _WelcomeApp extends State<WelcomeApp> {
   List<Widget> _buildScreens() {
     return [
       const MapSample(),
-      Profile(user: widget.user),
-      Profile(user: widget.user),
+      const Profile(),
+      const Profile(),
     ];
   }
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.map_fill),
+        icon: const Icon(CupertinoIcons.map_fill),
         title: ("Map"),
         activeColorPrimary: CupertinoColors.activeBlue,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.home),
+        icon: const Icon(CupertinoIcons.home),
         title: ("Home"),
         activeColorPrimary: CupertinoColors.activeBlue,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.profile_circled),
+        icon: const Icon(CupertinoIcons.profile_circled),
         title: ("Profile"),
         activeColorPrimary: CupertinoColors.activeBlue,
         inactiveColorPrimary: CupertinoColors.systemGrey,

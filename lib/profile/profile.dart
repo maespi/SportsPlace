@@ -5,12 +5,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../dataStorage.dart';
+import '../dataStorage.dart' as global;
 
 class Profile extends StatefulWidget {
-  const Profile({Key? key, required this.user}) : super(key: key);
+  const Profile({Key? key}) : super(key: key);
 
-  final User user;
   @override
   State<Profile> createState() => ProfileDisplayState();
 }
@@ -36,7 +35,7 @@ class ProfileDisplayState extends State<Profile> {
                 Padding(
                   padding: const EdgeInsets.only(top: 5),
                   child: Text(
-                    widget.user.Name,
+                    global.mainUser.Name,
                     textAlign: TextAlign.center,
                     style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white),
                   ),
@@ -44,7 +43,7 @@ class ProfileDisplayState extends State<Profile> {
                 Padding(
                   padding: const EdgeInsets.only(top: 5),
                   child: Text(
-                    widget.user.Email,
+                    global.mainUser.Email,
                     textAlign: TextAlign.center,
                     style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Colors.white),
                   ),
@@ -76,7 +75,7 @@ class ProfileDisplayState extends State<Profile> {
                         textAlign:TextAlign.justify,
                         textDirection: TextDirection.ltr,
                         text: TextSpan(
-                          text: widget.user.About,
+                          text: global.mainUser.About,
                           style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 13, fontStyle: FontStyle.normal),
                       ),
                     ),

@@ -80,7 +80,8 @@ class _LogInState extends State<LogIn> {
                         if (global.accounts.containsKey(controllerUser.text) && global.accounts[controllerUser.text] == controllerPass.text){
                           User user = global.profiles[controllerUser.text];
                           print("User has connected: "+user.Name);
-                          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (BuildContext context) => WelcomeApp(user: user)), (route) => false);// We delete the current path to avoid problems with the menu in login pages
+                          global.mainUser = user;
+                          Navigator.pushNamedAndRemoveUntil(context, '/welcome', (route) => false);// We delete the current path to avoid problems with the menu in login pages
                         }else{
                           showDialog(
                               context: context,

@@ -40,8 +40,8 @@ class SportsPlaceApp extends StatelessWidget {
         '/login': (context) => const LogIn(title: 'Sports Place'),
         '/signUp': (context) => const SignUp(title: 'Sports Place'),
         '/maps': (context) => const MapSample(),
-      //  '/welcome': (context) => const WelcomeApp(user: ,),
-      //  '/profile': (context) => const Profile(),
+        '/welcome': (context) => const WelcomeApp(),
+        '/profile': (context) => const Profile(),
       },
     );
   }
