@@ -1,7 +1,7 @@
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import '../dataStorage.dart' as global;
+import '../special/dataStorage.dart' as global;
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key, required this.title}) : super(key: key);
@@ -27,10 +27,12 @@ class _SignUpForm extends State<SignUp>{
     return SafeArea(
       child:
       Scaffold(
+        resizeToAvoidBottomInset:false,
         body: Center(
           // Center is a layout widget. It takes a single child and positions it
           // in the middle of the parent.
-          child: ListView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Container(
                 padding: const EdgeInsets.only(top: 4),
@@ -40,8 +42,8 @@ class _SignUpForm extends State<SignUp>{
                 child: Image.asset('assets/images/logowhitefull.png'),
               ),
               Container(
-                padding: const EdgeInsets.all(30),
-                margin: const EdgeInsets.only(left: 40, right: 40),
+                padding: const EdgeInsets.all(25),
+                margin: EdgeInsets.only(left: 40, right: 40,top: MediaQuery.of(context).size.height*0.1),
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.vertical(top: Radius.elliptical(20, 30), bottom: Radius.elliptical(20, 30)),
                   color: Color.fromRGBO(

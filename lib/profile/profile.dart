@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../dataStorage.dart' as global;
+import '../special/dataStorage.dart' as global;
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
