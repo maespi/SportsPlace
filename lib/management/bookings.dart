@@ -95,24 +95,8 @@ class BookingState extends State<Booking> {
                           backgroundColor: MaterialStateProperty.all<Color>(const Color.fromRGBO(101, 97, 134, 1)),
                         ),
                         onPressed: () {
-                          showCupertinoDialog<void>(
-                            context: context,
-                            builder: (BuildContext context) => CupertinoAlertDialog(
-                              content:
-                              Text('Your payment details and confirmation has been sent to '+ global.profiles[global.mainUser.Name].Email),
-                              actions: <CupertinoDialogAction>[
-                                CupertinoDialogAction(
-                                  child: const Text('Close'),
-                                  isDestructiveAction: true,
-                                  onPressed: () {
-                                    off.available = true;
-                                    bookingsLoader();
-                                    Navigator.pop(context);
-                                  },
-                                )
-                              ],
-                            ),
-                          );
+                          off.available = true;
+                          bookingsLoader();
                         },
                         child: const Icon(Icons.delete),
                       ),

@@ -37,9 +37,9 @@ class _LogInState extends State<LogIn> {
                 child: Image.asset('assets/images/logowhitefull.png'),
               ),
               Container(
-                alignment: Alignment.bottomCenter,
-                padding: const EdgeInsets.all(25),
-                margin: EdgeInsets.only(left: 40, right: 40, top: MediaQuery.of(context).size.height*0.1),
+                alignment: Alignment.center,
+                padding: const EdgeInsets.only(left: 25, top: 25, right: 25, bottom: 10),
+                margin: EdgeInsets.only(left: 40, right: 40, top: MediaQuery.of(context).size.height*0.05),
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.vertical(top: Radius.elliptical(20, 30), bottom: Radius.elliptical(20, 30)),
                   color: Color.fromRGBO(
