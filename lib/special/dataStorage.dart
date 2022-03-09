@@ -10,9 +10,9 @@ var publishers = {};
 User mainUser = User("", "", "");
 
 class User {
-  final String Name;
+  String Name;
   final String Email;
-  final String About;
+  String About;
 
   User(this.Name, this.Email, this.About);
 }
@@ -50,7 +50,7 @@ class Publisher{
 void loadData(){
 
   accounts['marc'] = "suu";
-  profiles["marc"] = User('marc', '@email', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tempor ultricies vehicula. Ut et tristique magna. Donec eget lacus aliquam, tempor purus ullamcorper, condimentum tellus. Aliquam eget arcu lacinia, volutpat leo sodales, feugiat mi. Integer ultricies pellentesque elit, non fermentum nunc elementum varius. Praesent id ex volutpat, varius dolor non, egestas lacus. Donec nec risus sed mi mattis pellentesque ac vitae turpis. Aenean scelerisque turpis sed varius fringilla. Praesent venenatis nulla in enim pellentesque faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur nisl nisi, egestas non posuere ut, rhoncus vitae elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas augue est, ultrices ut orci in, accumsan aliquet turpis. Sed ut enim vel lectus tincidunt maximus vel id ante. Quisque feugiat mollis velit non mattis.');
+  profiles["marc"] = User('Name', 'marc', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tempor ultricies vehicula. Ut et tristique magna. Donec eget lacus aliquam, tempor purus ullamcorper, condimentum tellus. Aliquam eget arcu lacinia, volutpat leo sodales, feugiat mi. Integer ultricies pellentesque elit, non fermentum nunc elementum varius. Praesent id ex volutpat, varius dolor non, egestas lacus. Donec nec risus sed mi mattis pellentesque ac vitae turpis. Aenean scelerisque turpis sed varius fringilla. Praesent venenatis nulla in enim pellentesque faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur nisl nisi, egestas non posuere ut, rhoncus vitae elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas augue est, ultrices ut orci in, accumsan aliquet turpis. Sed ut enim vel lectus tincidunt maximus vel id ante. Quisque feugiat mollis velit non mattis.');
 
   markers['marker1'] = CustomMarker("ARTÓS SPORTS CLUB", 'marker1',
       4.2, const LatLng(41.393538, 2.176174),'C/ dels Vergós 67, 08017, Barcelona' ,'10:30', '20:15');

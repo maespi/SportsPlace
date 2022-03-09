@@ -95,6 +95,7 @@ class MapSampleState extends State<MapSample> {
                   Expanded(
                       child: Column(
                         children: [
+                          Flexible(child:
                           RichText(
                             textAlign:TextAlign.center,
                             textDirection: TextDirection.ltr,
@@ -105,7 +106,9 @@ class MapSampleState extends State<MapSample> {
                                 fontStyle: FontStyle.normal,
                               ),
                             ),
+                          )
                           ),
+                          Flexible(child:
                           RichText(
                             textAlign:TextAlign.center,
                             textDirection: TextDirection.ltr,
@@ -116,6 +119,7 @@ class MapSampleState extends State<MapSample> {
                                 fontStyle: FontStyle.italic,
                               ),
                             ),
+                          )
                           ),
                           RichText(
                             textAlign:TextAlign.left,
@@ -134,7 +138,10 @@ class MapSampleState extends State<MapSample> {
                           ),
                           Row(
                             children: [
+                              Flexible(child:
                               RichText(
+                                textWidthBasis: TextWidthBasis.parent,
+                                overflow: TextOverflow.clip,
                                 textAlign:TextAlign.left,
                                 text: TextSpan(
                                   text: ('Opens at: ' + global.markers[id].opensH + '\n' +
@@ -144,7 +151,7 @@ class MapSampleState extends State<MapSample> {
                                     fontStyle: FontStyle.normal,
                                   ),
                                 ),
-                              ),
+                              )),
                               Padding(
                                   padding: const EdgeInsets.only(left: 30,right: 15),
                                   child: ElevatedButton(

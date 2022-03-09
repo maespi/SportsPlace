@@ -137,7 +137,7 @@ class PaymentState extends State<Payment> {
                       context: context,
                       builder: (BuildContext context) => CupertinoAlertDialog(
                         content:
-                        Text('Your payment details and confirmation has been sent to '+ global.profiles[global.mainUser.Name].Email),
+                        Text('Your payment details and confirmation has been sent to '+ global.mainUser.Email),
                         actions: <CupertinoDialogAction>[
                           CupertinoDialogAction(
                             child: const Text('Close'),

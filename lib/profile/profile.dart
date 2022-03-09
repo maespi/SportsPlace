@@ -1,11 +1,8 @@
 
-import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
 import '../special/dataStorage.dart' as global;
+import 'editProfile.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -30,7 +27,7 @@ class ProfileDisplayState extends State<Profile> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(200),
                   ),
-                  child: const Icon(CupertinoIcons.camera_circle_fill, size: 200),  //  TODO: Transform in a real image!
+                  child: const Icon(CupertinoIcons.camera_circle, size: 200, color: Colors.grey,),  //  TODO: Transform in a real image!
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 5),
@@ -66,10 +63,7 @@ class ProfileDisplayState extends State<Profile> {
                   padding: const EdgeInsets.only(left: 40, right: 40, top: 5),
                   width: 300.0,
                   height: 100.0,
-                  child:
-                  Expanded(
-                    flex: 1,
-                    child: SingleChildScrollView(
+                  child:SingleChildScrollView(
                       scrollDirection: Axis.vertical,//.horizontal
                       child: RichText(
                         textAlign:TextAlign.justify,
@@ -79,36 +73,33 @@ class ProfileDisplayState extends State<Profile> {
                           style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 13, fontStyle: FontStyle.normal),
                       ),
                     ),
-                    ),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 10, right: 35,left:35),
-
                   child: ElevatedButton(
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all<Color>(const Color.fromRGBO(30, 30, 30, 0.5)),
                     ),
-                    onPressed: () {},
+                    onPressed: () async {
+                      await Navigator.push(context, MaterialPageRoute(
+                          builder: (context) =>
+                          EditProfile()));
+                      setState(() {  });
+                    },
                     child: const Text(
                       '   Edit Profile  ',
                       style: TextStyle(color: Colors.white, fontSize: 15),
                     ),
                   ),
                 ),
+                //Navigator.pushNamed(context, '/editProf');
                 Padding(
                   padding: const EdgeInsets.only(top: 10,right: 30, left: 30),
                   child: RichText(
-                    text: TextSpan(
+                    text: const TextSpan(
                       text: 'SHARE YOUR SOCIAL',
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                      recognizer: TapGestureRecognizer()..onTap = () => showDialog(
-                          context: context,
-                          builder: (context) {
-                            return const AlertDialog(
-                              content: Text("TODO"),
-                            );
-                          }),
+                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
