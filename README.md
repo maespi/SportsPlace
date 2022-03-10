@@ -7,15 +7,39 @@ Flutter Project For Sports App
 This project is our first entry into the flutter language and the main idea is to have an app that
 let us have a list of clients that puts spaces on display for users to play sports and make reservations. 
 
+![alt text](assets/images/SportsPlaceIcon.jpeg)
+
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+The first step to our app is to log in or create an account, for the first one we 
+created a predefined user with the credentials as follows: 
+````aidl
+Email: temp@
+Password: temp
+````
+The other option is to create a user clicking on the text 'I do not have an account'.
+Once that, in both options once you log in or sign up it will grant the user access to the app.
+Taking into account that sign up first ask of the user to edit its data.
 
-A few resources to get you started if this is your first Flutter project:
+![alt text](assets/gettingStarted/login.png)
+![alt text](assets/gettingStarted/signup.png)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+From this moment on we have access to the map and the main menu.
+We can see the markers on the map:
+````aidl
+Blue: Private Clubs/Spaces
+Green: Public Spaces or recreative areas
+````
+![alt text](assets/gettingStarted/map.png)
+
+Now we can start editing our profile in the profile section or, if we tap on a
+marker we can see the data of a place and if it makes reference of a private space 
+we can click on view and make our reservations using the 'Lets see' button.
+Once that on the 'Bookings' section we can manage them.
+
+
+![alt text](assets/gettingStarted/offers.png)
+![alt text](assets/gettingStarted/bookings.png)
+
+

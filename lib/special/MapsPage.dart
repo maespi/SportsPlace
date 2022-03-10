@@ -30,9 +30,21 @@ class MapSampleState extends State<MapSample> {
           draggable: false,
           icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueAzure),
           onTap: () {
-            _onMarkerPressed(element.id);
+            _onMarkerPressed(element.id, false);
           }
           );
+      markers.add(_tmp);
+    }
+    for (var element in global.pMarkers.values) {
+      Marker _tmp = Marker(
+          markerId: MarkerId(element.id.toString()),
+          position: element.coord,
+          draggable: false,
+          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+          onTap: () {
+            _onMarkerPressed(element.id, true);
+          }
+      );
       markers.add(_tmp);
     }
   }
@@ -70,7 +82,15 @@ class MapSampleState extends State<MapSample> {
     );
   }
 
-  void _onMarkerPressed(String id){
+  void _onMarkerPressed(String id ,bool public){
+    global.CustomMarker marker;
+
+    if(!public){
+      marker = global.markers[id];
+    }else{
+      marker = global.pMarkers[id];
+    }
+
     var card = Positioned.fill(
         top: MediaQuery.of(context).size.height*0.65,
         child:
@@ -100,7 +120,7 @@ class MapSampleState extends State<MapSample> {
                             textAlign:TextAlign.center,
                             textDirection: TextDirection.ltr,
                             text: TextSpan(
-                              text: global.markers[id].name,
+                              text: marker.name,
                               style: const TextStyle(
                                 color: Colors.deepPurpleAccent,
                                 fontStyle: FontStyle.normal,
@@ -113,7 +133,7 @@ class MapSampleState extends State<MapSample> {
                             textAlign:TextAlign.center,
                             textDirection: TextDirection.ltr,
                             text: TextSpan(
-                              text: ('Rating: '+global.markers[id].punt.toString()),
+                              text: ('Rating: '+marker.punt.toString()),
                               style: const TextStyle(
                                 color: Colors.deepPurpleAccent,
                                 fontStyle: FontStyle.italic,
@@ -125,7 +145,7 @@ class MapSampleState extends State<MapSample> {
                             textAlign:TextAlign.left,
                             textDirection: TextDirection.ltr,
                             text: TextSpan(
-                              text: (global.markers[id].dir.toString()),
+                              text: (marker.dir.toString()),
                               style: const TextStyle(
                                 color: Colors.white,
                                 fontStyle: FontStyle.normal,
@@ -144,26 +164,27 @@ class MapSampleState extends State<MapSample> {
                                 overflow: TextOverflow.clip,
                                 textAlign:TextAlign.left,
                                 text: TextSpan(
-                                  text: ('Opens at: ' + global.markers[id].opensH + '\n' +
-                                      'Closes at: ' + global.markers[id].closesH),
+                                  text: ('Opens at: ' + marker.opensH + '\n' +
+                                      'Closes at: ' + marker.closesH),
                                   style: const TextStyle(
                                     color: Colors.white,
                                     fontStyle: FontStyle.normal,
                                   ),
                                 ),
                               )),
-                              Padding(
-                                  padding: const EdgeInsets.only(left: 30,right: 15),
-                                  child: ElevatedButton(
-                                    style: ButtonStyle(
-                                      backgroundColor: MaterialStateProperty.all<Color>(const Color.fromRGBO(101, 97, 134, 1)),
-                                    ),
-                                    onPressed: () {
-                                      Navigator.push(context, MaterialPageRoute(builder: (context) => ShopSchedule(shopId: id)));
-                                    },
-                                    child: const Text('VIEW',style: TextStyle(fontSize: 10)),
-                                  )
-                              )
+                              if(!public)
+                                Padding(
+                                    padding: const EdgeInsets.only(left: 30,right: 15),
+                                    child: ElevatedButton(
+                                      style: ButtonStyle(
+                                        backgroundColor: MaterialStateProperty.all<Color>(const Color.fromRGBO(101, 97, 134, 1)),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.push(context, MaterialPageRoute(builder: (context) => ShopSchedule(shopId: id)));
+                                      },
+                                      child: const Text('VIEW',style: TextStyle(fontSize: 10)),
+                                    )
+                                )
                             ],
                           )
                         ],
