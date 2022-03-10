@@ -13,7 +13,7 @@ let us have a list of clients that puts spaces on display for users to play spor
 
 The first step to our app is to log in or create an account, for the first one we 
 created a predefined user with the credentials as follows: 
-````aidl
+````
 Email: temp@
 Password: temp
 ````
@@ -27,7 +27,7 @@ Taking into account that sign up first ask of the user to edit its data.
 
 From this moment on we have access to the map and the main menu.
 We can see the markers on the map:
-````aidl
+````
 Blue: Private Clubs/Spaces
 Green: Public Spaces or recreative areas
 ````
@@ -43,4 +43,4 @@ Once that on the 'Bookings' section we can manage them.
 ![alt text](assets/gettingStarted/bookings.png)
 
 
-All data that the app uses is stored in 'dataStorage.dart', mainly referenced as global.
+All data that the app uses is stored in '/lib/special/dataStorage.dart', mainly referenced as global.
