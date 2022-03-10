@@ -43,3 +43,4 @@ Once that on the 'Bookings' section we can manage them.
 ![alt text](assets/gettingStarted/bookings.png)
 
 
+All data that the app uses is stored in 'dataStorage.dart', mainly referenced as global.
