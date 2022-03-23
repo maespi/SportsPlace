@@ -5,10 +5,10 @@ import 'package:sports_place/management/bookings.dart';
 import 'package:sports_place/profile/editProfile.dart';
 import 'package:sports_place/profile/profile.dart';
 import 'package:sports_place/config/welcomePage.dart';
-import '../access/logIn.dart';
-import '../access/signUp.dart';
-import '../special/MapsPage.dart';
-import '../special/dataStorage.dart' as global;
+import 'access/logIn.dart';
+import 'access/signUp.dart';
+import 'special/MapsPage.dart';
+import 'special/dataStorage.dart' as global;
 
 void main() {
   runApp(const SportsPlaceApp());if (defaultTargetPlatform == TargetPlatform.android) {

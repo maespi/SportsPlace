@@ -26,7 +26,7 @@ class ShopScheduleState extends State<ShopSchedule> {
 
     //Creation of the widget using the object Offer
     Widget _createOffer(String id, String data, String cost, bool booked){
-      String message = data+"          |          "+cost+"\$";
+      String message = data+"        |        "+cost+"\$";
       var off = Container(
         alignment: Alignment.center,
         decoration: const BoxDecoration(
@@ -34,9 +34,10 @@ class ShopScheduleState extends State<ShopSchedule> {
           color: Color.fromRGBO(
               53, 36, 61, 1),
         ),
-        padding: const EdgeInsets.only(left: 20),
+        padding: const EdgeInsets.only(left: 20, right: 10),
         margin: const EdgeInsets.only(left: 50, right: 40, top: 5, bottom: 5),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             RichText(text: TextSpan(
                 text: message,
@@ -48,8 +49,9 @@ class ShopScheduleState extends State<ShopSchedule> {
               indent: 19,
               thickness: 2,
             ),
-            Padding(
-                padding: const EdgeInsets.only(left: 20),
+            Align(
+                alignment: Alignment.centerRight,
+                //padding: const EdgeInsets.only(left: 20),
                 child: (() {
                   if(booked){
                     return ElevatedButton(
